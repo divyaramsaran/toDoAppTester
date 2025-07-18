@@ -10,4 +10,11 @@ const getNewTodoItem = () => {
   return null;
 };
 
-console.log(getNewTodoItem());
+const addTodoItem = (todoList, todoItem) => {
+  if (todoItem) {
+    todoList.push(todoItem);
+    console.log("Todo item added:", todoItem);
+  } else {
+    console.log("No todo item to add.");
+  }
+};
