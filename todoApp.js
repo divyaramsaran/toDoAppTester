@@ -18,3 +18,14 @@ const addTodoItem = (todoList, todoItem) => {
     console.log("No todo item to add.");
   }
 };
+
+const displayTodoList = (todoList) => {
+  if (todoList.length === 0) {
+    console.log("No todo items found.");
+    return;
+  }
+  console.log("Todo List:");
+  todoList.forEach((item) => {
+    console.log(`${item.id}: ${item.text} [${item.completed ? "Completed" : "Pending"}]`);
+  });
+};
