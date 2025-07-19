@@ -32,10 +32,22 @@ const displayTodoList = (todoList) => {
   });
 };
 
+const markTodoAsCompleted = (todoList, id) => {
+  const todoItem = todoList.find((item) => item.id === id);
+  if (todoItem) {
+    todoItem.completed = true;
+    console.log(`Todo item ${id} marked as completed.`);
+  } else {
+    console.log(`Todo item with id ${id} not found.`);
+  }
+};
+
 const main = (todoList) => {
   let action;
   do {
-    action = prompt("Choose an action: (1) Add Todo (2) View Todos (3) Exit");
+    action = prompt(
+      "Choose an action: (1) Add Todo (2) View Todos (3) Mark as Completed (4) Exit"
+    );
     switch (action) {
       case "1":
         const newTodoItem = getNewTodoItem();
@@ -46,6 +58,12 @@ const main = (todoList) => {
         break;
       case "3":
         console.log("Exiting the todo app.");
+        break;
+      case "4":
+        const id = parseInt(
+          prompt("Enter the ID of the todo item to mark as completed:")
+        );
+        markTodoAsCompleted(todoList, id);
         break;
       default:
         console.log("Invalid action. Please try again.");
