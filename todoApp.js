@@ -26,6 +26,30 @@ const displayTodoList = (todoList) => {
   }
   console.log("Todo List:");
   todoList.forEach((item) => {
-    console.log(`${item.id}: ${item.text} [${item.completed ? "Completed" : "Pending"}]`);
+    console.log(
+      `${item.id}: ${item.text} [${item.completed ? "Completed" : "Pending"}]`
+    );
   });
 };
+
+const main = (todoList) => {
+  let action;
+  do {
+    action = prompt("Choose an action: (1) Add Todo (2) View Todos (3) Exit");
+    switch (action) {
+      case "1":
+        const newTodoItem = getNewTodoItem();
+        addTodoItem(todoList, newTodoItem);
+        break;
+      case "2":
+        displayTodoList(todoList);
+        break;
+      case "3":
+        console.log("Exiting the todo app.");
+        break;
+      default:
+        console.log("Invalid action. Please try again.");
+    }
+  } while (action !== "3");
+};
+main([]);
