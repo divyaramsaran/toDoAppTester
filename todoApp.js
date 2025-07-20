@@ -1,4 +1,4 @@
-const getNewTodoItem = () => {
+export const getNewTodoItem = () => {
   const toDo = prompt("Enter a new todo item:");
   if (toDo) {
     return {
@@ -10,7 +10,7 @@ const getNewTodoItem = () => {
   return null;
 };
 
-const addTodoItem = (todoList, todoItem) => {
+export const addTodoItem = (todoList, todoItem) => {
   if (todoItem) {
     todoList.push(todoItem);
     console.log("Todo item added:", todoItem);
@@ -19,7 +19,7 @@ const addTodoItem = (todoList, todoItem) => {
   }
 };
 
-const displayTodoList = (todoList) => {
+export const displayTodoList = (todoList) => {
   if (todoList.length === 0) {
     console.log("No todo items found.");
     return;
@@ -32,7 +32,7 @@ const displayTodoList = (todoList) => {
   });
 };
 
-const markTodoAsCompleted = (todoList, id) => {
+export const markTodoAsCompleted = (todoList, id) => {
   const todoItem = todoList.find((item) => item.id === id);
   if (todoItem) {
     todoItem.completed = true;
