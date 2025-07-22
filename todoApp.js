@@ -1,4 +1,4 @@
-export const getNewTodoItem = () => {
+const getNewTodoItem = () => {
   const toDo = prompt("Enter a new todo item:");
   if (toDo) {
     return {
@@ -30,6 +30,9 @@ export const displayTodoList = (todoList) => {
       `${item.id}: ${item.text} [${item.completed ? "Completed" : "Pending"}]`
     );
   });
+  return todoList
+    .map((item) => `${item.id}. [${item.completed ? "x" : " "}] ${item.text}`)
+    .join("\n");
 };
 
 export const markTodoAsCompleted = (todoList, id) => {
@@ -70,4 +73,3 @@ const main = (todoList) => {
     }
   } while (action !== "3");
 };
-main([]);
