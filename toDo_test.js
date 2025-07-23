@@ -27,7 +27,17 @@ Deno.test("markTodoAsCompleted marks a todo item as completed", () => {
     { id: 1, text: "Test Todo 1", completed: false },
     { id: 2, text: "Test Todo 2", completed: false },
   ];
-  markTodoAsCompleted(todoList, 1);
-  assertEquals(todoList[0].completed, true);
-  assertEquals(todoList[1].completed, false);
+
+  assertEquals(markTodoAsCompleted(todoList, 1).completed, true);
+  assertEquals(markTodoAsCompleted(todoList, 2).completed, true);
+});
+
+Deno.test("markTodoAsCompleted does not change non-existent todo item", () => {
+  const todoList = [
+    { id: 1, text: "Test Todo 1", completed: false },
+    { id: 2, text: "Test Todo 2", completed: false },
+  ];
+
+  assertEquals(markTodoAsCompleted(todoList, 3), null);
+  assertEquals(markTodoAsCompleted(todoList, 4), null);
 });
