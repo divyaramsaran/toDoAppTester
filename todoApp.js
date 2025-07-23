@@ -40,9 +40,10 @@ export const markTodoAsCompleted = (todoList, id) => {
   if (todoItem) {
     todoItem.completed = true;
     console.log(`Todo item ${id} marked as completed.`);
-  } else {
-    console.log(`Todo item with id ${id} not found.`);
+    return todoItem;
   }
+  console.log(`Todo item with id ${id} not found.`);
+  return null;
 };
 
 const main = (todoList) => {
