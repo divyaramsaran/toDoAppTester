@@ -41,3 +41,9 @@ Deno.test("markTodoAsCompleted does not change non-existent todo item", () => {
   assertEquals(markTodoAsCompleted(todoList, 3), null);
   assertEquals(markTodoAsCompleted(todoList, 4), null);
 });
+
+Deno.test("displayTodoList handles empty todo list", () => {
+  const todoList = [];
+  const output = displayTodoList(todoList);
+  assertEquals(output, null);
+});
